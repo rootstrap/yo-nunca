@@ -36,3 +36,29 @@
     transform: rotate(360deg);
   }
 }
+
+.Container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.Card {
+  background-color: #e4600d;
+  margin: 10px;
+  height: 300px;
+  width: 225px;
+}
+
+.Text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  line-height: 40px;
+  padding: 20px;
+  height: 260px;
+  width: 185px;
+}
