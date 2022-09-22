@@ -47,6 +47,7 @@
 
 .Card {
   background-color: #e4600d;
+  cursor: pointer;
   margin: 10px;
   height: 300px;
   width: 225px;
