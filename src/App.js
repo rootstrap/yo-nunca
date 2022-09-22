@@ -11,23 +11,21 @@ function App() {
         .map((value) => ({ value, sort: Math.random() }))
         .sort((a, b) => a.sort - b.sort)
         .map(({ value }) => value),
-    [initialData]
+    []
   );
 
   const [data, setData] = useState(initialDataShuffled);
 
-  const handleOnClick = (e, { index, text, player, country, image }) => {
+  const handleOnClick = (e, { index }) => {
     e.preventDefault();
-    setData((prevState) => {
-      const newData = [...prevState];
-      const selectedValue = prevState[index];
-      const newValue = {
-        ...selectedValue,
-        isFlipped: !selectedValue.isFlipped,
-      };
-      newData[index] = newValue;
-      return newData;
-    });
+    const newData = [...data];
+    const selected = data[index];
+    const newValue = {
+      ...selected,
+      isFlipped: !selected.isFlipped,
+    };
+    newData[index] = newValue;
+    setData(newData);
   };
 
   return (
@@ -39,9 +37,7 @@ function App() {
             <CardFlip isFlipped={isFlipped} key={index}>
               <img
                 className="Card"
-                onClick={(e) =>
-                  handleOnClick(e, { index, text, player, country, image })
-                }
+                onClick={(e) => handleOnClick(e, { index })}
                 src={image}
                 alt={`${player}-${country}`}
               ></img>
